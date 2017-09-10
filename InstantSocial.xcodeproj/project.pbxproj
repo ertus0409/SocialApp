@@ -16,6 +16,8 @@
 		A3170E891F5F3BFC00BDCC09 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3170E881F5F3BFC00BDCC09 /* GoogleService-Info.plist */; };
 		A39B3E811F61F8C8005A5B70 /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39B3E801F61F8C8005A5B70 /* FancyView.swift */; };
 		A39B3E861F61FACE005A5B70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39B3E851F61FACE005A5B70 /* Constants.swift */; };
+		A39C4B6B1F65DB8F00EB3103 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39C4B6A1F65DB8F00EB3103 /* FBSDKCoreKit.framework */; };
+		A39C4B6D1F65DB9B00EB3103 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39C4B6C1F65DB9B00EB3103 /* FBSDKLoginKit.framework */; };
 		A3FFEDE51F61FDCF004ABE95 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFEDE41F61FDCF004ABE95 /* RoundButton.swift */; };
 		A3FFEDE71F620200004ABE95 /* FancyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFEDE61F620200004ABE95 /* FancyField.swift */; };
 		A3FFEDE91F62040B004ABE95 /* FancyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFEDE81F62040B004ABE95 /* FancyButton.swift */; };
@@ -34,6 +36,8 @@
 		A3170E881F5F3BFC00BDCC09 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A39B3E801F61F8C8005A5B70 /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		A39B3E851F61FACE005A5B70 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A39C4B6A1F65DB8F00EB3103 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		A39C4B6C1F65DB9B00EB3103 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		A3FFEDE41F61FDCF004ABE95 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		A3FFEDE61F620200004ABE95 /* FancyField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyField.swift; sourceTree = "<group>"; };
 		A3FFEDE81F62040B004ABE95 /* FancyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButton.swift; sourceTree = "<group>"; };
@@ -46,6 +50,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7834C3CCA397640A2837BB7C /* Pods_InstantSocial.framework in Frameworks */,
+				A39C4B6B1F65DB8F00EB3103 /* FBSDKCoreKit.framework in Frameworks */,
+				A39C4B6D1F65DB9B00EB3103 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +61,8 @@
 		7B714052447E24AA52C6ADCC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A39C4B6C1F65DB9B00EB3103 /* FBSDKLoginKit.framework */,
+				A39C4B6A1F65DB8F00EB3103 /* FBSDKCoreKit.framework */,
 				9ECAAB5FDF833A83EE7BF0DD /* Pods_InstantSocial.framework */,
 			);
 			name = Frameworks;
@@ -251,11 +259,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-InstantSocial/Pods-InstantSocial-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 			);
@@ -404,6 +418,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9U3W639GL8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = InstantSocial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CemGulver.InstantSocial;
@@ -418,6 +436,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9U3W639GL8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = InstantSocial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CemGulver.InstantSocial;

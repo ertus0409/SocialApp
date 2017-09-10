@@ -10,5 +10,7 @@ target 'InstantSocial' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
 
 end
