@@ -38,6 +38,7 @@
 		A39B3E851F61FACE005A5B70 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A39C4B6A1F65DB8F00EB3103 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A39C4B6C1F65DB9B00EB3103 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		A3B361EB1F6872D0006D7FDD /* InstantSocial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstantSocial.entitlements; sourceTree = "<group>"; };
 		A3FFEDE41F61FDCF004ABE95 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		A3FFEDE61F620200004ABE95 /* FancyField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyField.swift; sourceTree = "<group>"; };
 		A3FFEDE81F62040B004ABE95 /* FancyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButton.swift; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 		A3170E751F5F3B2900BDCC09 /* InstantSocial */ = {
 			isa = PBXGroup;
 			children = (
+				A3B361EB1F6872D0006D7FDD /* InstantSocial.entitlements */,
 				A39B3E821F61FA22005A5B70 /* Util */,
 				A3170E8C1F5F404700BDCC09 /* Controller */,
 				A3170E8B1F5F404200BDCC09 /* View */,
@@ -183,6 +185,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 9U3W639GL8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -417,6 +424,7 @@
 			baseConfigurationReference = 769439D81955505AB21C30AF /* Pods-InstantSocial.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = InstantSocial/InstantSocial.entitlements;
 				DEVELOPMENT_TEAM = 9U3W639GL8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -435,6 +443,7 @@
 			baseConfigurationReference = F150522BCDB5FD9343AB8CC8 /* Pods-InstantSocial.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = InstantSocial/InstantSocial.entitlements;
 				DEVELOPMENT_TEAM = 9U3W639GL8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
