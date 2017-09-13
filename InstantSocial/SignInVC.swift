@@ -9,16 +9,26 @@
 import UIKit
 import FBSDKLoginKit
 import Firebase
+import SwiftKeychainWrapper
 
 class SignInVC: UIViewController {
     
-    
+    //IBOutlets:
     @IBOutlet weak var emailField: FancyField!
     @IBOutlet weak var passwordField: FancyField!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if KeychainWrapper.defaultKeychainWrapper.string(forKey: KEY_UID) != nil {
+            print("ARTH: UID found in keychain")
+            performSegue(withIdentifier: "goToFeed", sender: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +36,8 @@ class SignInVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //FIREBASE EMAIL AUTHENTICATION FOR CREATING USER:
     @IBAction func SigninTapped(_ sender: Any) {
         if let email = emailField.text, let password = passwordField.text {
             Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
@@ -38,6 +50,11 @@ class SignInVC: UIViewController {
                             print("ARTH: Unable to authenticate with Firebase usinng email.")
                         } else {
                             print("ARTH: Successfully authenticated with Firebase with email.")
+                            
+                            if let user = user {
+                                self.completeSignin(id: user.uid)
+//                                print(KeychainWrapper.defaultKeychainWrapper.string(forKey: KEY_UID))
+                            }
                         }
                     })
                 }
@@ -45,7 +62,7 @@ class SignInVC: UIViewController {
         }
     }
     
-    //FACEBOOK SIGNIN
+    //FACEBOOK SIGNIN:
     @IBAction func FBSignInTapped(_ sender: Any) {
         let facebookLogin = FBSDKLoginManager()
         
@@ -58,21 +75,34 @@ class SignInVC: UIViewController {
                 print("ARTH: Successfully authenticated with Facebook.")
                 let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 self.firebaseAuth(credential)
+                
             }
         }
     }
-    //FIREBASE AUTH FOR FACEBOOK
+    
+    
+    
+    //FIREBASE AUTH FOR FACEBOOK:
     func firebaseAuth(_ credential: AuthCredential) {
         Auth.auth().signIn(with: credential) { (user, error) in
             if error != nil {
                 print("ARTH: Unnable to authenticate with Firebase - \(error)")
             } else {
                 print("ARTH: Successsfully authenticated with Firebase")
+                if let user = user {
+                    self.completeSignin(id: user.uid)
+                }
+                
             }
         }
     }
     
-    
+    //KEYCHAIN WRAPPER USER UID SAVE
+    func completeSignin(id: String){
+        let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
+        print("ARTH: Data saved to keychain \(keychainResult)")
+        performSegue(withIdentifier: "goToFeed", sender: nil)
+    }
     
     
     

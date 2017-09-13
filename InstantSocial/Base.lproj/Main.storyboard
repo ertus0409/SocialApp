@@ -131,11 +131,47 @@
                     <connections>
                         <outlet property="emailField" destination="8BG-e3-4Dr" id="iTa-95-Jgu"/>
                         <outlet property="passwordField" destination="vUH-St-Q19" id="Jvs-Ks-Wo4"/>
+                        <segue destination="IyC-mI-uWh" kind="show" identifier="goToFeed" id="owX-yM-bUz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="94.902548725637189"/>
+        </scene>
+        <!--FeedVC-->
+        <scene sceneID="vLW-Eo-RbI">
+            <objects>
+                <viewController id="IyC-mI-uWh" customClass="FeedVC" customModule="InstantSocial" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OGY-V7-ezX"/>
+                        <viewControllerLayoutGuide type="bottom" id="e1u-HS-xUJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xXk-Lb-eTn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyI-9l-7cj">
+                                <rect key="frame" x="146" y="315" width="83" height="36"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="SIGN OUT">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="SignOutBtnTapped:" destination="IyC-mI-uWh" eventType="touchUpInside" id="TX8-pw-zfD"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignIn" id="Nt4-tY-HoX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.4039215686" green="0.2274509804" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="yyI-9l-7cj" firstAttribute="centerX" secondItem="xXk-Lb-eTn" secondAttribute="centerX" id="0dc-R2-K4f"/>
+                            <constraint firstItem="yyI-9l-7cj" firstAttribute="centerY" secondItem="xXk-Lb-eTn" secondAttribute="centerY" id="Tmh-gu-tm0"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uDs-wl-xPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="910" y="95"/>
         </scene>
     </scenes>
     <resources>

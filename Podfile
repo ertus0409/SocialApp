@@ -12,5 +12,6 @@ target 'InstantSocial' do
   pod 'Firebase/Storage'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
+  pod 'SwiftKeychainWrapper'
 
 end
