@@ -15,6 +15,7 @@
 		A3170E7E1F5F3B2900BDCC09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3170E7D1F5F3B2900BDCC09 /* Assets.xcassets */; };
 		A3170E811F5F3B2900BDCC09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3170E7F1F5F3B2900BDCC09 /* LaunchScreen.storyboard */; };
 		A3170E891F5F3BFC00BDCC09 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3170E881F5F3BFC00BDCC09 /* GoogleService-Info.plist */; };
+		A3644EC31F78533F00781D0B /* CircleViewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3644EC21F78533F00781D0B /* CircleViewImage.swift */; };
 		A39B3E811F61F8C8005A5B70 /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39B3E801F61F8C8005A5B70 /* FancyView.swift */; };
 		A39B3E861F61FACE005A5B70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39B3E851F61FACE005A5B70 /* Constants.swift */; };
 		A39C4B6B1F65DB8F00EB3103 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39C4B6A1F65DB8F00EB3103 /* FBSDKCoreKit.framework */; };
@@ -36,6 +37,7 @@
 		A3170E801F5F3B2900BDCC09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3170E821F5F3B2900BDCC09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3170E881F5F3BFC00BDCC09 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A3644EC21F78533F00781D0B /* CircleViewImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleViewImage.swift; sourceTree = "<group>"; };
 		A39B3E801F61F8C8005A5B70 /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		A39B3E851F61FACE005A5B70 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A39C4B6A1F65DB8F00EB3103 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				A3FFEDE41F61FDCF004ABE95 /* RoundButton.swift */,
 				A3FFEDE61F620200004ABE95 /* FancyField.swift */,
 				A3FFEDE81F62040B004ABE95 /* FancyButton.swift */,
+				A3644EC21F78533F00781D0B /* CircleViewImage.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				A3170E791F5F3B2900BDCC09 /* SignInVC.swift in Sources */,
 				A3FFEDE51F61FDCF004ABE95 /* RoundButton.swift in Sources */,
 				A3FFEDE91F62040B004ABE95 /* FancyButton.swift in Sources */,
+				A3644EC31F78533F00781D0B /* CircleViewImage.swift in Sources */,
 				A30C35621F69804A00E57441 /* FeedVC.swift in Sources */,
 				A3170E771F5F3B2900BDCC09 /* AppDelegate.swift in Sources */,
 				A39B3E811F61F8C8005A5B70 /* FancyView.swift in Sources */,
