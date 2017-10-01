@@ -25,7 +25,7 @@ class SignInVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if KeychainWrapper.defaultKeychainWrapper.string(forKey: KEY_UID) != nil {
+        if KeychainWrapper.standard.string(forKey: KEY_UID) != nil {
             print("ARTH: UID found in keychain")
             performSegue(withIdentifier: "goToFeed", sender: nil)
         }
@@ -38,6 +38,11 @@ class SignInVC: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
                 if error == nil {
                     print("AUTH: Email user authenticated with Firebase.")
+                    if let user = user {
+                        let userData = ["provider": user.providerID]
+                        self.completeSignin(id: user.uid, userData: userData)
+                        
+                    }
                 } else {
                     
                     Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
@@ -47,8 +52,9 @@ class SignInVC: UIViewController {
                             print("ARTH: Successfully authenticated with Firebase with email.")
                             
                             if let user = user {
-                                self.completeSignin(id: user.uid)
-//                                print(KeychainWrapper.defaultKeychainWrapper.string(forKey: KEY_UID))
+                                let userData = ["provider": user.providerID]
+                                self.completeSignin(id: user.uid, userData: userData)
+                                
                             }
                         }
                     })
@@ -85,7 +91,8 @@ class SignInVC: UIViewController {
             } else {
                 print("ARTH: Successsfully authenticated with Firebase")
                 if let user = user {
-                    self.completeSignin(id: user.uid)
+                    let userData = ["proivder": credential.provider]
+                    self.completeSignin(id: user.uid, userData: userData)
                 }
                 
             }
@@ -93,7 +100,8 @@ class SignInVC: UIViewController {
     }
     
     //KEYCHAIN WRAPPER USER UID SAVE
-    func completeSignin(id: String){
+    func completeSignin(id: String, userData: Dictionary<String, String>){
+        DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
         let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
         print("ARTH: Data saved to keychain \(keychainResult)")
         performSegue(withIdentifier: "goToFeed", sender: nil)

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7834C3CCA397640A2837BB7C /* Pods_InstantSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECAAB5FDF833A83EE7BF0DD /* Pods_InstantSocial.framework */; };
 		A30C35621F69804A00E57441 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30C35611F69804A00E57441 /* FeedVC.swift */; };
+		A30CE43F1F7AFA7A0006322F /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CE43E1F7AFA7A0006322F /* PostCell.swift */; };
 		A3170E771F5F3B2900BDCC09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3170E761F5F3B2900BDCC09 /* AppDelegate.swift */; };
 		A3170E791F5F3B2900BDCC09 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3170E781F5F3B2900BDCC09 /* SignInVC.swift */; };
 		A3170E7C1F5F3B2900BDCC09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3170E7A1F5F3B2900BDCC09 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 		A39B3E861F61FACE005A5B70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39B3E851F61FACE005A5B70 /* Constants.swift */; };
 		A39C4B6B1F65DB8F00EB3103 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39C4B6A1F65DB8F00EB3103 /* FBSDKCoreKit.framework */; };
 		A39C4B6D1F65DB9B00EB3103 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39C4B6C1F65DB9B00EB3103 /* FBSDKLoginKit.framework */; };
+		A3D7BFDD1F8068B90031F4F0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7BFDC1F8068B90031F4F0 /* DataService.swift */; };
 		A3FFEDE51F61FDCF004ABE95 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFEDE41F61FDCF004ABE95 /* RoundButton.swift */; };
 		A3FFEDE71F620200004ABE95 /* FancyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFEDE61F620200004ABE95 /* FancyField.swift */; };
 		A3FFEDE91F62040B004ABE95 /* FancyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFEDE81F62040B004ABE95 /* FancyButton.swift */; };
@@ -29,6 +31,7 @@
 		769439D81955505AB21C30AF /* Pods-InstantSocial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstantSocial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstantSocial/Pods-InstantSocial.debug.xcconfig"; sourceTree = "<group>"; };
 		9ECAAB5FDF833A83EE7BF0DD /* Pods_InstantSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstantSocial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30C35611F69804A00E57441 /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		A30CE43E1F7AFA7A0006322F /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		A3170E731F5F3B2900BDCC09 /* InstantSocial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstantSocial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3170E761F5F3B2900BDCC09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3170E781F5F3B2900BDCC09 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 		A39C4B6A1F65DB8F00EB3103 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A39C4B6C1F65DB9B00EB3103 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		A3B361EB1F6872D0006D7FDD /* InstantSocial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstantSocial.entitlements; sourceTree = "<group>"; };
+		A3D7BFDC1F8068B90031F4F0 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		A3FFEDE41F61FDCF004ABE95 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		A3FFEDE61F620200004ABE95 /* FancyField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyField.swift; sourceTree = "<group>"; };
 		A3FFEDE81F62040B004ABE95 /* FancyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButton.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 		A3170E751F5F3B2900BDCC09 /* InstantSocial */ = {
 			isa = PBXGroup;
 			children = (
+				A3D7BFDB1F8068A40031F4F0 /* Services */,
 				A3B361EB1F6872D0006D7FDD /* InstantSocial.entitlements */,
 				A39B3E821F61FA22005A5B70 /* Util */,
 				A3170E8C1F5F404700BDCC09 /* Controller */,
@@ -124,6 +129,7 @@
 				A3FFEDE61F620200004ABE95 /* FancyField.swift */,
 				A3FFEDE81F62040B004ABE95 /* FancyButton.swift */,
 				A3644EC21F78533F00781D0B /* CircleViewImage.swift */,
+				A30CE43E1F7AFA7A0006322F /* PostCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -143,6 +149,14 @@
 				A39B3E851F61FACE005A5B70 /* Constants.swift */,
 			);
 			name = Util;
+			sourceTree = "<group>";
+		};
+		A3D7BFDB1F8068A40031F4F0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A3D7BFDC1F8068B90031F4F0 /* DataService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		BF75FAB9AE28C866AA31AD0A /* Pods */ = {
@@ -305,10 +319,12 @@
 				A3FFEDE51F61FDCF004ABE95 /* RoundButton.swift in Sources */,
 				A3FFEDE91F62040B004ABE95 /* FancyButton.swift in Sources */,
 				A3644EC31F78533F00781D0B /* CircleViewImage.swift in Sources */,
+				A3D7BFDD1F8068B90031F4F0 /* DataService.swift in Sources */,
 				A30C35621F69804A00E57441 /* FeedVC.swift in Sources */,
 				A3170E771F5F3B2900BDCC09 /* AppDelegate.swift in Sources */,
 				A39B3E811F61F8C8005A5B70 /* FancyView.swift in Sources */,
 				A39B3E861F61FACE005A5B70 /* Constants.swift in Sources */,
+				A30CE43F1F7AFA7A0006322F /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
