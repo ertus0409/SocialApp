@@ -24,12 +24,16 @@ class SignInVC: UIViewController {
         
     }
     
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         if KeychainWrapper.standard.string(forKey: KEY_UID) != nil {
             print("ARTH: UID found in keychain")
             performSegue(withIdentifier: "goToFeed", sender: nil)
         }
     }
+    
+    
     
     
     //FIREBASE EMAIL AUTHENTICATION FOR CREATING USER:
@@ -63,6 +67,10 @@ class SignInVC: UIViewController {
         }
     }
     
+    
+    
+    
+    
     //FACEBOOK SIGNIN:
     @IBAction func FBSignInTapped(_ sender: Any) {
         let facebookLogin = FBSDKLoginManager()
@@ -83,6 +91,9 @@ class SignInVC: UIViewController {
     
     
     
+    
+    
+    
     //FIREBASE AUTH FOR FACEBOOK:
     func firebaseAuth(_ credential: AuthCredential) {
         Auth.auth().signIn(with: credential) { (user, error) in
@@ -98,6 +109,11 @@ class SignInVC: UIViewController {
             }
         }
     }
+    
+    
+    
+    
+    
     
     //KEYCHAIN WRAPPER USER UID SAVE
     func completeSignin(id: String, userData: Dictionary<String, String>){
