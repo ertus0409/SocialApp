@@ -10,20 +10,27 @@ import UIKit
 import SwiftKeychainWrapper
 import Firebase
 
-class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     //IBOUTLETS:
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var imageAdd: CircleViewImage!
     
     //VARIABLES:
     var posts = [Post]()
+    var imagePicker: UIImagePickerController!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
             self.posts = []
@@ -43,6 +50,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    //TABLEVIEW
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -61,6 +69,28 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } else {
             return PostCell()
         }
+        
+    }
+    
+    
+    //IMAGEPICKER:
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+       
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            imageAdd.image = image
+        } else {
+            print("ARTH: A valid image wasn't selected.")
+        }
+        
+        imagePicker.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    
+    
+    @IBAction func addImageTapped(_ sender: Any) {
+        
+        present(imagePicker, animated: true, completion: nil)
         
     }
 
