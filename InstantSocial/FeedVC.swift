@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Foundation
 import SwiftKeychainWrapper
 import Firebase
+import FirebaseStorageUI
 
 class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -20,7 +22,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     //VARIABLES:
     var posts = [Post]()
     var imagePicker: UIImagePickerController!
-    
+    static var imageCache: NSCache<NSString, UIImage> = NSCache()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,21 +34,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         
-        DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
-            self.posts = []
-            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
-                for snap in snapshots {
-                    print("SNAP: \(snap)")
-                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
-                        let key = snap.key
-                        let post = Post(postKey: key, postData: postDict)
-                        self.posts.append(post)
-                    }
-                }
-            }
-            self.tableView.reloadData()
-        })
-
+        self.observe()
+        
         
     }
     
@@ -63,8 +52,13 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         
         let post = posts[indexPath.row]
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
-            cell.configureCell(post: post)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCel") as? PostCell {
+            
+            if let img = FeedVC.imageCache.object(forKey: post.imageUrl as NSString) {
+                cell.configureCell(post: post, img: img)
+            } else {
+                cell.configureCell(post: post)
+            }
             return cell
         } else {
             return PostCell()
@@ -85,13 +79,29 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker.dismiss(animated: true, completion: nil)
         
     }
-    
-    
-    
     @IBAction func addImageTapped(_ sender: Any) {
         
         present(imagePicker, animated: true, completion: nil)
         
+    }
+    
+    //OBSERVER:
+    func observe() {
+        DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
+            self.posts = []
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for snap in snapshot {
+                    print("SNAP: \(snap)")
+                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
+                        let key = snap.key
+                        let post = Post(postKey: key, postData: postDict)
+                        self.posts.append(post)
+                    }
+                }
+            }
+            self.tableView.reloadData()
+        })
+
     }
 
     

@@ -34,7 +34,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftKeychainWrapper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>leveldb-library.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>nanopb.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,12 +62,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>266AE1506DAD13D34C0725E909C0C476</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>44CAD6CE523055ED339E87154473A254</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>49559B979FDB508A34A7E19180805580</key>
+		<key>6EA3AF8D26EA16EC8379CACC5722747A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8A9EB0CE924521E40F795096D53723BF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A96A6AA1DE0AB32C199156C463E068E5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +102,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F15A6F4309C2A580CA21C838B9104902</key>
+		<key>E4DD95323C54A78F879DAB0F1508B8E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
