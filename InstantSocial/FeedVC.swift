@@ -18,11 +18,13 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     //IBOUTLETS:
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageAdd: CircleViewImage!
+    @IBOutlet weak var captionField: FancyField!
     
     //VARIABLES:
     var posts = [Post]()
     var imagePicker: UIImagePickerController!
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
+    var imageSelected = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,8 +74,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
        
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             imageAdd.image = image
+            imageSelected = true
         } else {
             print("ARTH: A valid image wasn't selected.")
+            imageSelected = false
         }
         
         imagePicker.dismiss(animated: true, completion: nil)
@@ -104,6 +108,35 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
 
     }
 
+    //POST BUTTON:
+    @IBAction func PostBtnTapped(_ sender: Any) {
+        
+        guard let caption = captionField.text, caption != "" else {
+            print("ARTH: Caption must be entered.")
+            return
+        }
+        guard let image = imageAdd.image, imageSelected == true else {
+            print("ARTH: An image must be selected")
+            return
+        }
+        //Compressing the image in order to fasten the download process:
+        if let imgData = UIImageJPEGRepresentation(image, 0.2) {
+            let imgUid = NSUUID().uuidString
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+            //Downloading the image to
+            DataService.ds.REF_POST_IMAGES.child(imgUid).putData(imgData, metadata: metadata) { (metadata, error) in
+                if error != nil {
+                    print("ARTH: Unable to upload image to Fİrebase Storage")
+                } else {
+                    print("ARTH: Successfully uploaded the image to Firebase Storage")
+                    let downloadURL = metadata?.downloadURL()?.absoluteString
+                }
+            }
+                
+        }
+    }
+    
     
     //SIGN OUT BTN (KeychainnWrapper):
     @IBAction func SignOutBtnTapped(_ sender: Any) {

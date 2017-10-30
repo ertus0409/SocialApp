@@ -21,7 +21,7 @@ class DataService {
     private var _REF_POSTS = DB_BASE.child("posts")
     private var _REF_USERS = DB_BASE.child("user")
     //Storage References:
-    private var _REF_POST_IMAGES = STORAGE_BASE.child("gs://instant-social.appspot.com/post-pics")
+    private var _REF_POST_IMAGES = STORAGE_BASE.child("post-pics")
     
     
     var REF_BASE: DatabaseReference {
