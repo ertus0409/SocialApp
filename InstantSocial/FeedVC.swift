@@ -138,6 +138,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             }
                 
         }
+        captionField.endEditing(true)
     }
     
     //FUNCTION TO MAKE THE POST:
@@ -148,8 +149,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             "likes": 0 as AnyObject,
         ]
         
-        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
-        firebasePost.setValue(post)
+        let _ = DataService.ds.REF_POSTS.childByAutoId().setValue(post)
         
         captionField.text = ""
         imageSelected = false
