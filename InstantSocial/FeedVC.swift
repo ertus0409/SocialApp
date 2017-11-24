@@ -113,6 +113,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         
         guard let caption = captionField.text, caption != "" else {
             print("ARTH: Caption must be entered.")
+            captionField.placeholder = "Add an image and a caption."
             return
         }
         guard let image = imageAdd.image, imageSelected == true else {
@@ -147,9 +148,13 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             "caption": captionField.text as AnyObject  ,
             "imageUrl": imgUrl as AnyObject,
             "likes": 0 as AnyObject,
+//            "user": //WİLL BE ADDED
         ]
-        
         let _ = DataService.ds.REF_POSTS.childByAutoId().setValue(post)
+        
+        var ref: DatabaseReference!
+        
+        
         
         captionField.text = ""
         imageSelected = false

@@ -24,6 +24,7 @@ class PostCell: UITableViewCell {
     //VARIABLES:
     var post: Post!
     var likesRef: DatabaseReference!
+    var userRef: DatabaseReference!
 
     
 
@@ -42,10 +43,11 @@ class PostCell: UITableViewCell {
         
         likesRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postKey)
         
+        
         self.post = post
         self.caption.text = post.caption
         self.likesLbl.text = "\(post.likes)"
-                
+        
         if img != nil {
             print("ARTH!")
             self.postImage.image = img
@@ -67,6 +69,12 @@ class PostCell: UITableViewCell {
                 }
             })
         }
+        
+        //USERNAMW:
+//        userRef = DataService.ds.REF_USER_CURRENT.child("username")
+//        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+//            self.usernameLbl.text = snapshot.value as! String
+//        })
         
         //LIKE OBSERVER:
         likesRef.observeSingleEvent(of: .value, with: { (snapshot) in

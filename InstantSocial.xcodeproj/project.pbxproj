@@ -17,12 +17,14 @@
 		A3170E811F5F3B2900BDCC09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3170E7F1F5F3B2900BDCC09 /* LaunchScreen.storyboard */; };
 		A3170E891F5F3BFC00BDCC09 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3170E881F5F3BFC00BDCC09 /* GoogleService-Info.plist */; };
 		A3644EC31F78533F00781D0B /* CircleViewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3644EC21F78533F00781D0B /* CircleViewImage.swift */; };
+		A38C1C291FB8B2BF008A0BAC /* CreateUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38C1C281FB8B2BF008A0BAC /* CreateUserVC.swift */; };
 		A39B3E811F61F8C8005A5B70 /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39B3E801F61F8C8005A5B70 /* FancyView.swift */; };
 		A39B3E861F61FACE005A5B70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39B3E851F61FACE005A5B70 /* Constants.swift */; };
 		A39C4B6B1F65DB8F00EB3103 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39C4B6A1F65DB8F00EB3103 /* FBSDKCoreKit.framework */; };
 		A39C4B6D1F65DB9B00EB3103 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39C4B6C1F65DB9B00EB3103 /* FBSDKLoginKit.framework */; };
 		A3AF5BBD1F843B3A00F17B7E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AF5BBC1F843B3A00F17B7E /* Post.swift */; };
 		A3D7BFDD1F8068B90031F4F0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7BFDC1F8068B90031F4F0 /* DataService.swift */; };
+		A3FF6ABC1FC8798C00038D0E /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3FF6ABB1FC8798C00038D0E /* SwiftKeychainWrapper.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		A3FFEDE51F61FDCF004ABE95 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFEDE41F61FDCF004ABE95 /* RoundButton.swift */; };
 		A3FFEDE71F620200004ABE95 /* FancyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFEDE61F620200004ABE95 /* FancyField.swift */; };
 		A3FFEDE91F62040B004ABE95 /* FancyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFEDE81F62040B004ABE95 /* FancyButton.swift */; };
@@ -42,13 +44,16 @@
 		A3170E821F5F3B2900BDCC09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3170E881F5F3BFC00BDCC09 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A3644EC21F78533F00781D0B /* CircleViewImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleViewImage.swift; sourceTree = "<group>"; };
+		A38C1C281FB8B2BF008A0BAC /* CreateUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserVC.swift; sourceTree = "<group>"; };
 		A39B3E801F61F8C8005A5B70 /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		A39B3E851F61FACE005A5B70 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A39C4B6A1F65DB8F00EB3103 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A39C4B6C1F65DB9B00EB3103 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		A3AF5BBC1F843B3A00F17B7E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		A3B361EB1F6872D0006D7FDD /* InstantSocial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstantSocial.entitlements; sourceTree = "<group>"; };
+		A3CE50971FC876FA009D9AC3 /* FacebookCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookCore.framework; path = "Pods/../build/Debug-iphoneos/FacebookCore/FacebookCore.framework"; sourceTree = "<group>"; };
 		A3D7BFDC1F8068B90031F4F0 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		A3FF6ABB1FC8798C00038D0E /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftKeychainWrapper.framework; path = "Pods/../build/Release-iphoneos/SwiftKeychainWrapper/SwiftKeychainWrapper.framework"; sourceTree = "<group>"; };
 		A3FFEDE41F61FDCF004ABE95 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		A3FFEDE61F620200004ABE95 /* FancyField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyField.swift; sourceTree = "<group>"; };
 		A3FFEDE81F62040B004ABE95 /* FancyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButton.swift; sourceTree = "<group>"; };
@@ -60,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3FF6ABC1FC8798C00038D0E /* SwiftKeychainWrapper.framework in Frameworks */,
 				7834C3CCA397640A2837BB7C /* Pods_InstantSocial.framework in Frameworks */,
 				A39C4B6B1F65DB8F00EB3103 /* FBSDKCoreKit.framework in Frameworks */,
 				A39C4B6D1F65DB9B00EB3103 /* FBSDKLoginKit.framework in Frameworks */,
@@ -72,6 +78,8 @@
 		7B714052447E24AA52C6ADCC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3FF6ABB1FC8798C00038D0E /* SwiftKeychainWrapper.framework */,
+				A3CE50971FC876FA009D9AC3 /* FacebookCore.framework */,
 				A39C4B6C1F65DB9B00EB3103 /* FBSDKLoginKit.framework */,
 				A39C4B6A1F65DB8F00EB3103 /* FBSDKCoreKit.framework */,
 				9ECAAB5FDF833A83EE7BF0DD /* Pods_InstantSocial.framework */,
@@ -142,6 +150,7 @@
 			children = (
 				A3170E781F5F3B2900BDCC09 /* SignInVC.swift */,
 				A30C35611F69804A00E57441 /* FeedVC.swift */,
+				A38C1C281FB8B2BF008A0BAC /* CreateUserVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -333,6 +342,7 @@
 				A3AF5BBD1F843B3A00F17B7E /* Post.swift in Sources */,
 				A3170E771F5F3B2900BDCC09 /* AppDelegate.swift in Sources */,
 				A39B3E811F61F8C8005A5B70 /* FancyView.swift in Sources */,
+				A38C1C291FB8B2BF008A0BAC /* CreateUserVC.swift in Sources */,
 				A39B3E861F61FACE005A5B70 /* Constants.swift in Sources */,
 				A30CE43F1F7AFA7A0006322F /* PostCell.swift in Sources */,
 			);
@@ -465,6 +475,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/FacebookCore",
+					"$(PROJECT_DIR)/build/Release-iphoneos/SwiftKeychainWrapper",
 				);
 				INFOPLIST_FILE = InstantSocial/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -485,6 +497,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/FacebookCore",
+					"$(PROJECT_DIR)/build/Release-iphoneos/SwiftKeychainWrapper",
 				);
 				INFOPLIST_FILE = InstantSocial/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

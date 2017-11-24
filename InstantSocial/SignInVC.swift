@@ -8,14 +8,19 @@
 
 import UIKit
 import FBSDKLoginKit
+import FBSDKCoreKit
 import Firebase
 import SwiftKeychainWrapper
 
+
 class SignInVC: UIViewController {
-    
+    var i = 1
     //IBOutlets:
     @IBOutlet weak var emailField: FancyField!
     @IBOutlet weak var passwordField: FancyField!
+    @IBOutlet weak var errorLbl: UILabel!
+    @IBOutlet weak var centerPopup: NSLayoutConstraint!
+    @IBOutlet weak var popupUsername: FancyField!
 
     
     override func viewDidLoad() {
@@ -45,23 +50,13 @@ class SignInVC: UIViewController {
                     if let user = user {
                         let userData = ["provider": user.providerID]
                         self.completeSignin(id: user.uid, userData: userData)
+                        self.performSegue(withIdentifier: "goToFeed", sender: nil)
                         
                     }
                 } else {
-                    
-                    Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
-                        if error != nil {
-                            print("ARTH: Unable to authenticate with Firebase usinng email.")
-                        } else {
-                            print("ARTH: Successfully authenticated with Firebase with email.")
-                            
-                            if let user = user {
-                                let userData = ["provider": user.providerID]
-                                self.completeSignin(id: user.uid, userData: userData)
-                                
-                            }
-                        }
-                    })
+                    //New User
+                    self.errorLbl.text = "Invalid user information. Try again or create an accout."
+                    self.errorLbl.textColor = UIColor.red
                 }
             })
         }
@@ -83,8 +78,10 @@ class SignInVC: UIViewController {
             } else {
                 print("ARTH: Successfully authenticated with Facebook.")
                 let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                self.firebaseAuth(credential)
                 
+                self.firebaseAuth(credential)
+//                self.fetchUserProfile()
+//                self.performSegue(withIdentifier: "FBSignInUsername", sender: nil)
             }
         }
     }
@@ -103,6 +100,7 @@ class SignInVC: UIViewController {
                 print("ARTH: Successsfully authenticated with Firebase")
                 if let user = user {
                     let userData = ["proivder": credential.provider]
+                    print("DATA:\(userData.description)")
                     self.completeSignin(id: user.uid, userData: userData)
                 }
                 
@@ -124,13 +122,8 @@ class SignInVC: UIViewController {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
+    @IBAction func continueUsernameTapped(_ sender: Any) {
+    }
     
     
     
