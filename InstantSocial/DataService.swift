@@ -52,6 +52,19 @@ class DataService {
     
     func createFirebaseDBUser(uid: String, userData: Dictionary<String, String>) {
         
+//        REF_USERS.child(uid).chil
+//        
+//        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+//            // Get user value
+//            let value = snapshot.value as? NSDictionary
+//            let username = value?["username"] as? String ?? ""
+//            let user = User(username: username)
+//            
+//            // ...
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+        
         REF_USERS.child(uid).updateChildValues(userData)
         
     }

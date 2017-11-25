@@ -14,13 +14,15 @@ import SwiftKeychainWrapper
 
 
 class SignInVC: UIViewController {
-    var i = 1
     //IBOutlets:
     @IBOutlet weak var emailField: FancyField!
     @IBOutlet weak var passwordField: FancyField!
     @IBOutlet weak var errorLbl: UILabel!
     @IBOutlet weak var centerPopup: NSLayoutConstraint!
     @IBOutlet weak var popupUsername: FancyField!
+    
+    //VARIABLES:
+    var userid: String!
 
     
     override func viewDidLoad() {
@@ -47,6 +49,8 @@ class SignInVC: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
                 if error == nil {
                     print("AUTH: Email user authenticated with Firebase.")
+                    self.errorLbl.text = "Downloading data..."
+                    self.errorLbl.textColor = UIColor.orange
                     if let user = user {
                         let userData = ["provider": user.providerID]
                         self.completeSignin(id: user.uid, userData: userData)
@@ -76,12 +80,13 @@ class SignInVC: UIViewController {
             } else if result?.isCancelled == true {
                 print("ARTH: User cancelled Facebook authentication")
             } else {
+                self.errorLbl.text = "Downloading data..."
+                self.errorLbl.textColor = UIColor.orange
                 print("ARTH: Successfully authenticated with Facebook.")
                 let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 
                 self.firebaseAuth(credential)
-//                self.fetchUserProfile()
-//                self.performSegue(withIdentifier: "FBSignInUsername", sender: nil)
+
             }
         }
     }
@@ -95,35 +100,31 @@ class SignInVC: UIViewController {
     func firebaseAuth(_ credential: AuthCredential) {
         Auth.auth().signIn(with: credential) { (user, error) in
             if error != nil {
-                print("ARTH: Unnable to authenticate with Firebase - \(error)")
+                print("ARTH: Unable to authenticate with Firebase - \(error)")
             } else {
                 print("ARTH: Successsfully authenticated with Firebase")
                 if let user = user {
-                    let userData = ["proivder": credential.provider]
-                    print("DATA:\(userData.description)")
-                    self.completeSignin(id: user.uid, userData: userData)
+                        let userData = ["proivder": credential.provider, "username": user.displayName]
+                        print("DATA:\(userData.description)")
+                        self.userid = user.uid
+                        self.completeSignin(id: self.userid, userData: userData as! Dictionary<String, String>)
                 }
                 
             }
         }
     }
-    
-    
-    
-    
-    
-    
     //KEYCHAIN WRAPPER USER UID SAVE
     func completeSignin(id: String, userData: Dictionary<String, String>){
         DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
         let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
         print("ARTH: Data saved to keychain \(keychainResult)")
         performSegue(withIdentifier: "goToFeed", sender: nil)
+        
     }
     
     
-    @IBAction func continueUsernameTapped(_ sender: Any) {
-    }
+    
+
     
     
     

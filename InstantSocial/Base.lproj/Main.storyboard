@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Create User Fb-->
         <scene sceneID="0hH-Z7-5uh">
             <objects>
-                <viewController id="uci-Qj-cTp" sceneMemberID="viewController">
+                <viewController id="uci-Qj-cTp" customClass="CreateUserFb" customModule="InstantSocial" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bEd-gZ-L8w"/>
                         <viewControllerLayoutGuide type="bottom" id="Ek0-c6-2gY"/>
@@ -21,12 +21,54 @@
                     <view key="view" contentMode="scaleToFill" id="O9B-Pf-ms3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="dBo-f6-Jmj">
+                                <rect key="frame" x="26" y="246" width="323" height="175"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y63-Dh-5bR">
+                                        <rect key="frame" x="0.0" y="0.0" width="323" height="29"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create a username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tGH-FR-d96" customClass="FancyField" customModule="InstantSocial" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="69" width="323" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tie-4E-G3O">
+                                        <rect key="frame" x="0.0" y="139" width="323" height="36"/>
+                                        <color key="backgroundColor" red="0.93287324910000002" green="0.49454197290000002" blue="0.19213114680000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                        <state key="normal" title="CONTINUE">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="continueTapped:" destination="uci-Qj-cTp" eventType="touchUpInside" id="Ahc-2V-aV3"/>
+                                            <action selector="continueUsernameTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S2X-K4-Zfn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.45946744080000002" green="0.33460572360000002" blue="0.74517083169999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="dBo-f6-Jmj" firstAttribute="centerY" secondItem="O9B-Pf-ms3" secondAttribute="centerY" id="MSX-ek-u2a"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dBo-f6-Jmj" secondAttribute="trailing" constant="10" id="You-Ci-XgW"/>
+                            <constraint firstItem="dBo-f6-Jmj" firstAttribute="leading" secondItem="O9B-Pf-ms3" secondAttribute="leadingMargin" constant="10" id="fbM-vk-mX2"/>
+                            <constraint firstItem="dBo-f6-Jmj" firstAttribute="centerX" secondItem="O9B-Pf-ms3" secondAttribute="centerX" id="ksn-aJ-OrY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="Y63-Dh-5bR" id="YF0-iO-yiw"/>
+                        <outlet property="usernameField" destination="tGH-FR-d96" id="ZHh-7F-P7j"/>
+                        <segue destination="IyC-mI-uWh" kind="show" identifier="fbFeed" id="MfN-na-UTy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p0o-cf-MGs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="-584.25787106446785"/>
+            <point key="canvasLocation" x="137" y="-700"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="tne-QT-ifu">
@@ -138,52 +180,9 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYd-Yb-cXe">
-                                <rect key="frame" x="-362.5" y="251" width="300" height="165"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="dBo-f6-Jmj">
-                                        <rect key="frame" x="8" y="17" width="284" height="131"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y63-Dh-5bR">
-                                                <rect key="frame" x="0.0" y="0.0" width="284" height="29"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create a username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tGH-FR-d96" customClass="FancyField" customModule="InstantSocial" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="47" width="284" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tie-4E-G3O">
-                                                <rect key="frame" x="0.0" y="95" width="284" height="36"/>
-                                                <color key="backgroundColor" red="0.93287324910000002" green="0.49454197290000002" blue="0.19213114680000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
-                                                <state key="normal" title="CONTINUE">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="continueUsernameTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S2X-K4-Zfn"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.45946744080000002" green="0.33460572360000002" blue="0.74517083169999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstItem="dBo-f6-Jmj" firstAttribute="centerY" secondItem="SYd-Yb-cXe" secondAttribute="centerY" id="9o4-np-i1a"/>
-                                    <constraint firstAttribute="trailing" secondItem="dBo-f6-Jmj" secondAttribute="trailing" constant="8" id="Y0V-3R-r1e"/>
-                                    <constraint firstItem="dBo-f6-Jmj" firstAttribute="leading" secondItem="SYd-Yb-cXe" secondAttribute="leading" constant="8" id="Y2c-aT-DCC"/>
-                                    <constraint firstItem="dBo-f6-Jmj" firstAttribute="centerX" secondItem="SYd-Yb-cXe" secondAttribute="centerX" id="j8u-o9-oBG"/>
-                                    <constraint firstAttribute="height" constant="165" id="lKI-ee-UKw"/>
-                                    <constraint firstAttribute="width" constant="300" id="mQj-gw-Y4b"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="SYd-Yb-cXe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-400" id="3QJ-2a-OuJ"/>
                             <constraint firstItem="LdT-YW-9wc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8bk-rU-F1l"/>
                             <constraint firstItem="5sH-Lc-b9b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HYI-5S-GoD"/>
                             <constraint firstItem="aln-tV-Em5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="MJD-PT-jr9"/>
@@ -192,7 +191,6 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Chm-IR-RMy" secondAttribute="bottom" id="dMP-Jk-rwD"/>
                             <constraint firstItem="5sH-Lc-b9b" firstAttribute="top" secondItem="Qwc-AB-uw3" secondAttribute="bottom" constant="20" id="faS-ud-QdL"/>
                             <constraint firstItem="Qwc-AB-uw3" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="kGT-EX-eUh"/>
-                            <constraint firstItem="SYd-Yb-cXe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mBy-QS-kuv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aln-tV-Em5" secondAttribute="trailing" constant="30" id="qfi-oo-rCp"/>
                             <constraint firstItem="Qwc-AB-uw3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="sAg-Gc-rg9"/>
                             <constraint firstItem="LdT-YW-9wc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tSD-pB-Rjb"/>
@@ -203,12 +201,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="centerPopup" destination="3QJ-2a-OuJ" id="YpN-RS-e1R"/>
                         <outlet property="emailField" destination="8BG-e3-4Dr" id="iTa-95-Jgu"/>
                         <outlet property="errorLbl" destination="Qwc-AB-uw3" id="NGD-l9-nr2"/>
                         <outlet property="passwordField" destination="vUH-St-Q19" id="Jvs-Ks-Wo4"/>
                         <outlet property="popupUsername" destination="tGH-FR-d96" id="CeC-rD-a02"/>
                         <segue destination="IyC-mI-uWh" kind="show" identifier="goToFeed" id="owX-yM-bUz"/>
+                        <segue destination="uci-Qj-cTp" kind="show" identifier="fbUsername" id="Wfu-Ah-iwT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -610,6 +608,6 @@
         <image name="sign-out" width="92" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KGc-cq-Gof"/>
+        <segue reference="MfN-na-UTy"/>
     </inferredMetricsTieBreakers>
 </document>
