@@ -15,6 +15,7 @@ class Post {
     private var _caption: String!
     private var _imageUrl: String!
     private var _likes: Int!
+    private var _user: String!
     private var _postKey: String!
     private var _postRef: DatabaseReference!
     
@@ -31,6 +32,10 @@ class Post {
         return _likes
     }
     
+    var user: String {
+        return _user
+    }
+    
     var postKey: String {
         return _postKey
     }
@@ -44,6 +49,10 @@ class Post {
     
     init(postKey: String, postData: Dictionary<String, AnyObject>) {
         self._postKey = postKey
+        
+        if let user = postData["user"] as? String {
+            self._user = user
+        }
         
         if let caption = postData["caption"] as? String {
             self._caption = caption

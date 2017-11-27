@@ -122,6 +122,13 @@ class SignInVC: UIViewController {
         
     }
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "goToFeeed" {
+//            let Feed = segue.destination as! FeedVC
+//            Feed.username = self.userid
+//        }
+//    }
+//    
     
     
 

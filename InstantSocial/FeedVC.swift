@@ -105,6 +105,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             }
             self.tableView.reloadData()
         })
+        
+        
 
     }
 
@@ -144,17 +146,25 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
     //FUNCTION TO MAKE THE POST:
     func postToFirebase(imgUrl: String) {
-        let post: Dictionary<String, AnyObject> = [
-            "caption": captionField.text as AnyObject  ,
+        var post: Dictionary<String, AnyObject> = [
+            "caption": self.captionField.text as AnyObject  ,
             "imageUrl": imgUrl as AnyObject,
             "likes": 0 as AnyObject,
-//            "user": //WİLL BE ADDED
-        ]
-        let _ = DataService.ds.REF_POSTS.childByAutoId().setValue(post)
+            "user": "" as AnyObject,
+            ]
         
-        var ref: DatabaseReference!
-        
-        
+        //Username:
+        DataService.ds.REF_USER_CURRENT.observeSingleEvent(of: .value, with: { (snapshot) in
+            print("ARTHHH: ", snapshot.value as! [String:AnyObject]!)
+            let value = snapshot.value as! [String:AnyObject]!
+            let username = value?["username"] as! String
+            post.updateValue(username as AnyObject, forKey: "user")
+            let _ = DataService.ds.REF_POSTS.childByAutoId().setValue(post)
+            print("POSTT: ",post)
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         
         captionField.text = ""
         imageSelected = false
@@ -171,6 +181,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         
         
     }
+    
+    
     
     
     
